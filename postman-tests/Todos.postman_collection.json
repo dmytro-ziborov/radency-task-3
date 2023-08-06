@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "940475e6-ab0d-41e9-9735-e663be081716",
+		"name": "Todos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add",
+			"item": [
+				{
+					"name": "addValid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"new note\",\n    \"category\":3,\n    \"content\":\"hello, it's new note\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-invalid-name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\":1,\n    \"content\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-invalid-empty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-invalid-category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"new note\",\n    \"content\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-invalid-content",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"new note\",\n    \"category\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "findAll",
+			"item": [
+				{
+					"name": "getAllNotes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"item": [
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "id",
+								"value": "uXqS089E0d7Nn2wkdHAJd",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/notes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteInvalid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/notes/fdnksdfjksdfhjjsfhjsdhfjsdhfrjiwihrjqwhshjksgfhjsdgfhjksghfhjsghjsjkfghjksdgjfhgshjfgsdhjgfhjsfgsdhjfgjsd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"fdnksdfjksdfhjjsfhjsdhfjsdhfrjiwihrjqwhshjksgfhjsdgfhjksghfhjsghjsjkfghjksdgjfhgshjfgsdhjgfhjsfgsdhjfgjsd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "update",
+			"item": [
+				{
+					"name": "update-valid",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Changeddd\",\n    \"category\":2,\n    \"content\":\"changed content 6/8/2023\",\n    \"isActive\":false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/notes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-invalid-body",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/notes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-invalid-param",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/notes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "find",
+			"item": [
+				{
+					"name": "find-valid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/notes/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find-invalid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/notes/asdjkmjklasdkljasdjkasdjklasdkl",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"asdjkmjklasdkljasdjkasdjklasdkl"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stats",
+			"item": [
+				{
+					"name": "stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/notes/stats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
