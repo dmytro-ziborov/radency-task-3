@@ -1,0 +1,21 @@
+import {
+  ArgumentMetadata,
+  BadRequestException,
+  Injectable,
+  PipeTransform,
+} from '@nestjs/common';
+import { ObjectSchema } from 'joi';
+
+//Describes pipe for Joi-scheme objects validation
+@Injectable()
+export class SchemaValidationPipe implements PipeTransform {
+  constructor(private schema: ObjectSchema) {}
+
+  transform(value: any, metadata: ArgumentMetadata) {
+    const { error } = this.schema.validate(value);
+    if (error) {
+      throw new BadRequestException(`Validation failed`);
+    }
+    return value;
+  }
+}
